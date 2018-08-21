@@ -1,5 +1,5 @@
 {
-  "name": "angular-archwizard",
+  "name": "@suitespot/angular-archwizard",
   "version": "3.0.0",
   "license": "MIT",
   "description": "An angular 2+ module containing a wizard component and its supporting components and directives",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/madoar/angular-archwizard"
+    "url": "https://github.com/suitespot/angular-archwizard"
   },
   "bugs": {
-    "url": "https://github.com/madoar/angular-archwizard/issues"
+    "url": "https://github.com/suitespot/angular-archwizard/issues"
   },
   "keywords": [
     "angular",
@@ -36,7 +36,9 @@
     "pretest": "npm run lint",
     "test": "karma start",
     "test-watch": "karma start --no-single-run --auto-watch",
-    "build": "ng-packagr -p ng-package.json"
+    "build": "ng-packagr -p ng-package.json",
+    "publish-please": "publish-please",
+    "prepublishOnly": "publish-please guard"
   },
   "devDependencies": {
     "@angular/common": "^5.2.1",
@@ -69,6 +71,7 @@
     "less": "^2.7.1",
     "less-loader": "^4.0.3",
     "ng-packagr": "^2.2.0",
+    "publish-please": "^3.2.0",
     "raw-loader": "0.5.1",
     "reflect-metadata": "^0.1.9",
     "rimraf": "^2.6.1",
