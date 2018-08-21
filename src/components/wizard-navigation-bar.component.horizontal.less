@@ -2,10 +2,10 @@
  color definitions
  */
 @wz-color-default: #E6E6E6;
-@wz-color-current: #808080;
-@wz-color-done: #339933;
-@wz-color-optional: #38ef38;
-@wz-color-editing: #FF0000;
+@wz-color-current: #2F84C2;
+@wz-color-done: #089a99;
+@wz-color-optional: #00cece;
+@wz-color-editing: #2F84C2;
 
 /*
  dot definitions
@@ -71,7 +71,12 @@ aw-wizard-navigation-bar.horizontal {
 
   .state-circle-with-background-and-content(@circle-color) {
     .state-circle-with-background(@circle-color);
-    color: black;
+    color: white;
+  }
+
+  .state-circle-title(@font-color) {
+    color: @font-color;
+    font-family: "Source Sans Pro", sans-serif;
   }
 
   &.small {
@@ -108,6 +113,41 @@ aw-wizard-navigation-bar.horizontal {
 
       li.editing:after {
         .state-circle-with-background(@wz-color-editing);
+      }
+
+      li.current div a {
+        .state-circle-title(@wz-color-current);
+        &:hover {
+          color: darken(@wz-color-current, 20%);
+        }
+      }
+
+      li.default div a {
+        .state-circle-title(@wz-color-default);
+        &:hover {
+          color: darken(@wz-color-default, 20%);
+        }
+      }
+
+      li.done div a {
+        .state-circle-title(@wz-color-done);
+        &:hover {
+          color: darken(@wz-color-done, 20%);
+        }
+      }
+
+      li.optional div a {
+        .state-circle-title(@wz-color-optional);
+        &:hover {
+          color: darken(@wz-color-optional, 20%);
+        }
+      }
+
+      li.editing div a {
+        .state-circle-title(@wz-color-editing);
+        &:hover {
+          color: darken(@wz-color-editing, 20%);
+        }
       }
     }
   }
@@ -147,6 +187,41 @@ aw-wizard-navigation-bar.horizontal {
       li.editing:after {
         .state-circle-with-background(@wz-color-editing);
       }
+
+      li.current div a {
+        .state-circle-title(@wz-color-current);
+        &:hover {
+          color: darken(@wz-color-current, 20%);
+        }
+      }
+
+      li.default div a {
+        .state-circle-title(@wz-color-default);
+        &:hover {
+          color: darken(@wz-color-default, 20%);
+        }
+      }
+
+      li.done div a {
+        .state-circle-title(@wz-color-done);
+        &:hover {
+          color: darken(@wz-color-done, 20%);
+        }
+      }
+
+      li.optional div a {
+        .state-circle-title(@wz-color-optional);
+        &:hover {
+          color: darken(@wz-color-optional, 20%);
+        }
+      }
+
+      li.editing div a {
+        .state-circle-title(@wz-color-editing);
+        &:hover {
+          color: darken(@wz-color-editing, 20%);
+        }
+      }
     }
   }
 
@@ -184,6 +259,41 @@ aw-wizard-navigation-bar.horizontal {
 
       li.editing:after {
         .state-circle-with-border(@dot-border-width, @wz-color-editing);
+      }
+
+      li.current div a {
+        .state-circle-title(@wz-color-current);
+        &:hover {
+          color: darken(@wz-color-current, 20%);
+        }
+      }
+
+      li.default div a {
+        .state-circle-title(@wz-color-default);
+        &:hover {
+          color: darken(@wz-color-default, 20%);
+        }
+      }
+
+      li.done div a {
+        .state-circle-title(@wz-color-done);
+        &:hover {
+          color: darken(@wz-color-done, 20%);
+        }
+      }
+
+      li.optional div a {
+        .state-circle-title(@wz-color-optional);
+        &:hover {
+          color: darken(@wz-color-optional, 20%);
+        }
+      }
+
+      li.editing div a {
+        .state-circle-title(@wz-color-editing);
+        &:hover {
+          color: darken(@wz-color-editing, 20%);
+        }
       }
     }
   }
@@ -225,6 +335,41 @@ aw-wizard-navigation-bar.horizontal {
       li.editing:after {
         .state-circle-with-background-and-content(@wz-color-editing);
       }
+
+      li.current div a {
+        .state-circle-title(@wz-color-current);
+        &:hover {
+          color: darken(@wz-color-current, 20%);
+        }
+      }
+
+      li.default div a {
+        .state-circle-title(@wz-color-default);
+        &:hover {
+          color: darken(@wz-color-default, 20%);
+        }
+      }
+
+      li.done div a {
+        .state-circle-title(@wz-color-done);
+        &:hover {
+          color: darken(@wz-color-done, 20%);
+        }
+      }
+
+      li.optional div a {
+        .state-circle-title(@wz-color-optional);
+        &:hover {
+          color: darken(@wz-color-optional, 20%);
+        }
+      }
+
+      li.editing div a {
+        .state-circle-title(@wz-color-editing);
+        &:hover {
+          color: darken(@wz-color-editing, 20%);
+        }
+      }
     }
   }
 
@@ -265,6 +410,42 @@ aw-wizard-navigation-bar.horizontal {
       li.editing:after {
         .state-circle-with-border-and-content(@dot-border-width, @wz-color-editing);
       }
+
+      li.current div a {
+        .state-circle-title(@wz-color-current);
+        &:hover {
+          color: darken(@wz-color-current, 20%);
+        }
+      }
+
+      li.default div a {
+        .state-circle-title(@wz-color-default);
+        &:hover {
+          color: darken(@wz-color-default, 20%);
+        }
+      }
+
+      li.done div a {
+        .state-circle-title(@wz-color-done);
+        &:hover {
+          color: darken(@wz-color-done, 20%);
+        }
+      }
+
+      li.optional div a {
+        .state-circle-title(@wz-color-optional);
+        &:hover {
+          color: darken(@wz-color-optional, 20%);
+        }
+      }
+
+      li.editing div a {
+        .state-circle-title(@wz-color-editing);
+        &:hover {
+          color: darken(@wz-color-editing, 20%);
+        }
+      }
+
     }
   }
 
@@ -346,11 +527,11 @@ aw-wizard-navigation-bar.horizontal {
         align-items: center;
 
         a {
-          color: @wz-color-current;
+          // color: @wz-color-current;
           line-height: @text-height;
           font-size: @text-height;
           text-decoration: none;
-          text-transform: uppercase;
+          // text-transform: uppercase;
           text-align: center;
           font-weight: bold;
           transition: 0.25s;
