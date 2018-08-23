@@ -23,3 +23,16 @@ export enum MovingDirection {
    */
   Stay
 }
+
+export namespace MovingDirectionUtils {
+  export type Predicate = ((direction: MovingDirection) => boolean) | ((direction: MovingDirection) => Promise<boolean>);
+
+  export function calulate(currentIndex: number, destinationIndex: number): MovingDirection {
+    if (destinationIndex > currentIndex) {
+      return MovingDirection.Forwards;
+    } else if (destinationIndex < currentIndex) {
+      return MovingDirection.Backwards;
+    }
+    return MovingDirection.Stay;
+  }
+}

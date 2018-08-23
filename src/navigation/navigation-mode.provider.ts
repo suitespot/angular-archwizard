@@ -1,9 +1,9 @@
-import {FreeNavigationMode} from './free-navigation-mode';
-import {SemiStrictNavigationMode} from './semi-strict-navigation-mode';
-import {StrictNavigationMode} from './strict-navigation-mode';
-
-import {NavigationMode} from './navigation-mode.interface';
-import {WizardState} from './wizard-state.model';
+import { FreeNavigationMode } from './free-navigation-mode';
+import { NavigationMode } from './navigation-mode.interface';
+import { SemiStrictNavigationMode } from './semi-strict-navigation-mode';
+import { StepByStepNavigationMode } from './step-by-step-navigation-mode';
+import { StrictNavigationMode } from './strict-navigation-mode';
+import { WizardState } from './wizard-state.model';
 
 /**
  * A factory method used to create [[NavigationMode]] instances
@@ -18,6 +18,8 @@ export function navigationModeFactory(navigationMode: string, wizardState: Wizar
       return new FreeNavigationMode(wizardState);
     case 'semi-strict':
       return new SemiStrictNavigationMode(wizardState);
+    case 'step-by-step':
+      return new StepByStepNavigationMode(wizardState);
     case 'strict':
     default:
       return new StrictNavigationMode(wizardState);
