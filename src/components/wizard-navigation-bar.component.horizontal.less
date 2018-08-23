@@ -77,6 +77,9 @@ aw-wizard-navigation-bar.horizontal {
   .state-circle-title(@font-color) {
     color: @font-color;
     font-family: "Source Sans Pro", sans-serif;
+    &:hover {
+      color: darken(@font-color, 20%);
+    }
   }
 
   &.small {
@@ -117,37 +120,26 @@ aw-wizard-navigation-bar.horizontal {
 
       li.current div a {
         .state-circle-title(@wz-color-current);
-        &:hover {
-          color: darken(@wz-color-current, 20%);
-        }
       }
 
       li.default div a {
         .state-circle-title(@wz-color-default);
-        &:hover {
-          color: darken(@wz-color-default, 20%);
-        }
       }
 
       li.done div a {
         .state-circle-title(@wz-color-done);
-        &:hover {
-          color: darken(@wz-color-done, 20%);
-        }
       }
 
       li.optional div a {
         .state-circle-title(@wz-color-optional);
-        &:hover {
-          color: darken(@wz-color-optional, 20%);
-        }
       }
 
       li.editing div a {
         .state-circle-title(@wz-color-editing);
-        &:hover {
-          color: darken(@wz-color-editing, 20%);
-        }
+      }
+
+      li.default.navigable div a {
+        .state-circle-title(lighten(@wz-color-current, 20%));
       }
     }
   }
@@ -190,37 +182,26 @@ aw-wizard-navigation-bar.horizontal {
 
       li.current div a {
         .state-circle-title(@wz-color-current);
-        &:hover {
-          color: darken(@wz-color-current, 20%);
-        }
       }
 
       li.default div a {
         .state-circle-title(@wz-color-default);
-        &:hover {
-          color: darken(@wz-color-default, 20%);
-        }
       }
 
       li.done div a {
         .state-circle-title(@wz-color-done);
-        &:hover {
-          color: darken(@wz-color-done, 20%);
-        }
       }
 
       li.optional div a {
         .state-circle-title(@wz-color-optional);
-        &:hover {
-          color: darken(@wz-color-optional, 20%);
-        }
       }
 
       li.editing div a {
         .state-circle-title(@wz-color-editing);
-        &:hover {
-          color: darken(@wz-color-editing, 20%);
-        }
+      }
+
+      li.default.navigable div a {
+        .state-circle-title(lighten(@wz-color-current, 20%));
       }
     }
   }
@@ -263,37 +244,26 @@ aw-wizard-navigation-bar.horizontal {
 
       li.current div a {
         .state-circle-title(@wz-color-current);
-        &:hover {
-          color: darken(@wz-color-current, 20%);
-        }
       }
 
       li.default div a {
         .state-circle-title(@wz-color-default);
-        &:hover {
-          color: darken(@wz-color-default, 20%);
-        }
       }
 
       li.done div a {
         .state-circle-title(@wz-color-done);
-        &:hover {
-          color: darken(@wz-color-done, 20%);
-        }
       }
 
       li.optional div a {
         .state-circle-title(@wz-color-optional);
-        &:hover {
-          color: darken(@wz-color-optional, 20%);
-        }
       }
 
       li.editing div a {
         .state-circle-title(@wz-color-editing);
-        &:hover {
-          color: darken(@wz-color-editing, 20%);
-        }
+      }
+
+      li.default.navigable div a {
+        .state-circle-title(lighten(@wz-color-current, 20%));
       }
     }
   }
@@ -338,37 +308,26 @@ aw-wizard-navigation-bar.horizontal {
 
       li.current div a {
         .state-circle-title(@wz-color-current);
-        &:hover {
-          color: darken(@wz-color-current, 20%);
-        }
       }
 
       li.default div a {
         .state-circle-title(@wz-color-default);
-        &:hover {
-          color: darken(@wz-color-default, 20%);
-        }
       }
 
       li.done div a {
         .state-circle-title(@wz-color-done);
-        &:hover {
-          color: darken(@wz-color-done, 20%);
-        }
       }
 
       li.optional div a {
         .state-circle-title(@wz-color-optional);
-        &:hover {
-          color: darken(@wz-color-optional, 20%);
-        }
       }
 
       li.editing div a {
         .state-circle-title(@wz-color-editing);
-        &:hover {
-          color: darken(@wz-color-editing, 20%);
-        }
+      }
+
+      li.default.navigable div a {
+        .state-circle-title(lighten(@wz-color-current, 20%));
       }
     }
   }
@@ -413,37 +372,26 @@ aw-wizard-navigation-bar.horizontal {
 
       li.current div a {
         .state-circle-title(@wz-color-current);
-        &:hover {
-          color: darken(@wz-color-current, 20%);
-        }
       }
 
       li.default div a {
         .state-circle-title(@wz-color-default);
-        &:hover {
-          color: darken(@wz-color-default, 20%);
-        }
       }
 
       li.done div a {
         .state-circle-title(@wz-color-done);
-        &:hover {
-          color: darken(@wz-color-done, 20%);
-        }
       }
 
       li.optional div a {
         .state-circle-title(@wz-color-optional);
-        &:hover {
-          color: darken(@wz-color-optional, 20%);
-        }
       }
 
       li.editing div a {
         .state-circle-title(@wz-color-editing);
-        &:hover {
-          color: darken(@wz-color-editing, 20%);
-        }
+      }
+
+      li.default.navigable div a {
+        .state-circle-title(lighten(@wz-color-current, 20%));
       }
 
     }
@@ -546,6 +494,11 @@ aw-wizard-navigation-bar.horizontal {
 
     li.navigable {
       pointer-events: auto;
+      div {
+        a {
+          .state-circle-title(lighten(@wz-color-current, 20%));
+        }
+      }
     }
   }
 }

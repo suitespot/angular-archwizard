@@ -1,21 +1,22 @@
 import {CommonModule} from '@angular/common';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 
-import {WizardComponent} from './components/wizard.component';
-import {WizardNavigationBarComponent} from './components/wizard-navigation-bar.component';
-import {WizardStepComponent} from './components/wizard-step.component';
 import {WizardCompletionStepComponent} from './components/wizard-completion-step.component';
-
-import {NextStepDirective} from './directives/next-step.directive';
-import {PreviousStepDirective} from './directives/previous-step.directive';
-import {OptionalStepDirective} from './directives/optional-step.directive';
-import {GoToStepDirective} from './directives/go-to-step.directive';
-import {WizardStepTitleDirective} from './directives/wizard-step-title.directive';
+import {WizardNavigationBarComponent} from './components/wizard-navigation-bar.component';
+import {WizardRequiredStepComponent} from './components/wizard-required-step/wizard-required-step.component';
+import {WizardStepComponent} from './components/wizard-step.component';
+import {WizardComponent} from './components/wizard.component';
 import {EnableBackLinksDirective} from './directives/enable-back-links.directive';
-import {WizardStepDirective} from './directives/wizard-step.directive';
-import {WizardCompletionStepDirective} from './directives/wizard-completion-step.directive';
-import {SelectedStepDirective} from './directives/selected-step.directive';
+import {GoToStepDirective} from './directives/go-to-step.directive';
+import {NextStepDirective} from './directives/next-step.directive';
+import {OptionalStepDirective} from './directives/optional-step.directive';
+import {PreviousStepDirective} from './directives/previous-step.directive';
 import {ResetWizardDirective} from './directives/reset-wizard.directive';
+import {SelectedStepDirective} from './directives/selected-step.directive';
+import {WizardCompletionStepDirective} from './directives/wizard-completion-step.directive';
+import {WizardRequiredStepDirective} from './directives/wizard-required-step.directive';
+import {WizardStepTitleDirective} from './directives/wizard-step-title.directive';
+import {WizardStepDirective} from './directives/wizard-step.directive';
 
 /**
  * The module defining all the content inside `angular-archwizard`
@@ -28,6 +29,7 @@ import {ResetWizardDirective} from './directives/reset-wizard.directive';
     WizardStepComponent,
     WizardNavigationBarComponent,
     WizardCompletionStepComponent,
+    WizardRequiredStepComponent,
     GoToStepDirective,
     NextStepDirective,
     PreviousStepDirective,
@@ -36,6 +38,7 @@ import {ResetWizardDirective} from './directives/reset-wizard.directive';
     EnableBackLinksDirective,
     WizardStepDirective,
     WizardCompletionStepDirective,
+    WizardRequiredStepDirective,
     SelectedStepDirective,
     ResetWizardDirective
   ],
@@ -47,6 +50,7 @@ import {ResetWizardDirective} from './directives/reset-wizard.directive';
     WizardStepComponent,
     WizardNavigationBarComponent,
     WizardCompletionStepComponent,
+    WizardRequiredStepComponent,
     GoToStepDirective,
     NextStepDirective,
     PreviousStepDirective,
@@ -55,6 +59,7 @@ import {ResetWizardDirective} from './directives/reset-wizard.directive';
     EnableBackLinksDirective,
     WizardStepDirective,
     WizardCompletionStepDirective,
+    WizardRequiredStepDirective,
     SelectedStepDirective,
     ResetWizardDirective
   ]

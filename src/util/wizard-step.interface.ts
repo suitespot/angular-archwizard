@@ -1,8 +1,9 @@
-import {MovingDirection} from './moving-direction.enum';
-import {WizardStepTitleDirective} from '../directives/wizard-step-title.directive';
-import {ContentChild, EventEmitter, HostBinding, Input, Output} from '@angular/core';
-import {isBoolean} from 'util';
-import {NavigationSymbol} from './navigation-symbol.interface';
+import { ContentChild, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { isBoolean } from 'util';
+
+import { WizardStepTitleDirective } from '../directives/wizard-step-title.directive';
+import { MovingDirection, MovingDirectionUtils } from './moving-direction.enum';
+import { NavigationSymbol } from './navigation-symbol.interface';
 
 /**
  * Basic functionality every type of wizard step needs to provide
@@ -61,13 +62,13 @@ export abstract class WizardStep {
    * A function or boolean deciding, if this step can be entered
    */
   @Input()
-  public canEnter: ((direction: MovingDirection) => boolean) | ((direction: MovingDirection) => Promise<boolean>) | boolean = true;
+  public canEnter: MovingDirectionUtils.Predicate | boolean = true;
 
   /**
    * A function or boolean deciding, if this step can be exited
    */
   @Input()
-  public canExit: ((direction: MovingDirection) => boolean) | ((direction: MovingDirection) => Promise<boolean>) | boolean = true;
+  public canExit: MovingDirectionUtils.Predicate | boolean = true;
 
   /**
    * This [[EventEmitter]] is called when the step is entered.
@@ -101,9 +102,7 @@ export abstract class WizardStep {
    * @returns A [[Promise]] containing `true`, if this step can transitioned in the given direction
    * @throws An `Error` is thrown if `condition` is neither a function nor a boolean
    */
-  private static canTransitionStep(condition: ((direction: MovingDirection) => boolean) |
-                                     ((direction: MovingDirection) => Promise<boolean>) |
-                                     boolean,
+  private static canTransitionStep(condition: MovingDirectionUtils.Predicate | boolean,
                                    direction: MovingDirection): Promise<boolean> {
     if (isBoolean(condition)) {
       return Promise.resolve(condition as boolean);
@@ -156,5 +155,9 @@ export abstract class WizardStep {
    */
   public canExitStep(direction: MovingDirection): Promise<boolean> {
     return WizardStep.canTransitionStep(this.canExit, direction);
+  }
+
+  public reset(): void {
+    this.completed = false;
   }
 }

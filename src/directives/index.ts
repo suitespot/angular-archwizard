@@ -6,6 +6,7 @@ export {PreviousStepDirective} from './previous-step.directive';
 export {ResetWizardDirective} from './reset-wizard.directive';
 export {SelectedStepDirective} from './selected-step.directive';
 export {WizardCompletionStepDirective} from './wizard-completion-step.directive';
+export {WizardRequiredStepDirective} from './wizard-required-step.directive';
 export {WizardStepDirective} from './wizard-step.directive';
 export {WizardStepTitleDirective} from './wizard-step-title.directive';
 

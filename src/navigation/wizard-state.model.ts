@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {WizardStep} from '../util/wizard-step.interface';
-import {MovingDirection} from '../util/moving-direction.enum';
-import {NavigationMode} from './navigation-mode.interface';
-import {navigationModeFactory} from './navigation-mode.provider';
+import { Injectable } from '@angular/core';
+
+import { MovingDirection, MovingDirectionUtils } from '../util/moving-direction.enum';
+import { WizardStep } from '../util/wizard-step.interface';
+import { NavigationMode } from './navigation-mode.interface';
+import { navigationModeFactory } from './navigation-mode.provider';
 
 /**
  * The internal model/state of a wizard.
@@ -203,16 +204,6 @@ export class WizardState {
    * @returns The calculated [[MovingDirection]]
    */
   getMovingDirection(destinationStep: number): MovingDirection {
-    let movingDirection: MovingDirection;
-
-    if (destinationStep > this.currentStepIndex) {
-      movingDirection = MovingDirection.Forwards;
-    } else if (destinationStep < this.currentStepIndex) {
-      movingDirection = MovingDirection.Backwards;
-    } else {
-      movingDirection = MovingDirection.Stay;
-    }
-
-    return movingDirection;
+    return MovingDirectionUtils.calulate(this.currentStepIndex, destinationStep);
   }
 }

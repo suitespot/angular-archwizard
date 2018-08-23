@@ -14,11 +14,12 @@ function isDirectionPredicate(fn: any): fn is MovingDirectionUtils.Predicate {
  * A [[NavigationMode]], which allows the user to navigate with some limitations.
  * The user can only navigation to a given destination step, if:
  * - the current step can be exited in the direction of the destination step
+ * - the destination step is the direct next step
  * - a completion step can only be entered, if all "normal" wizard steps have been completed
  *
- * @author Marc Arndt
+ * @author Will Fairclough
  */
-export class SemiStrictNavigationMode extends NavigationMode {
+export class StepByStepNavigationMode extends NavigationMode {
   /**
    * Constructor
    *
@@ -48,7 +49,13 @@ export class SemiStrictNavigationMode extends NavigationMode {
     };
 
     const canEnterDestinationStep = (previous: boolean) => {
-      return previous ? this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
+      const canEnterDest = movingDirection === MovingDirection.Forwards ?
+          destinationIndex === (this.wizardState.currentStepIndex + 1)
+          : true;
+      return previous ?
+        canEnterDest &&
+        this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection)
+        : Promise.resolve(false);
     };
 
     // provide the destination step as a lambda in case the index doesn't exist (i.e. hasStep === false)
@@ -74,7 +81,7 @@ export class SemiStrictNavigationMode extends NavigationMode {
   /**
    * Tries to enter the wizard step with the given destination index.
    * When entering the destination step, the following actions are done:
-   * - the old current step is set as completed
+   * - the old current step is set as completed if moving foward
    * - the old current step is set as unselected
    * - the old current step is exited
    * - the destination step is set as selected
@@ -127,6 +134,9 @@ export class SemiStrictNavigationMode extends NavigationMode {
   isNavigable(destinationIndex: number): boolean {
     const currentStep = this.wizardState.currentStep;
     const movingDirection: MovingDirection = this.wizardState.getMovingDirection(destinationIndex);
+    if (movingDirection === MovingDirection.Forwards && destinationIndex !== (this.wizardState.currentStepIndex + 1)) {
+      return false;
+    }
     if (isBoolean(currentStep.canExit) && !currentStep.canExit) {
       return false;
     } else if (isDirectionPredicate(currentStep.canExit)) {
